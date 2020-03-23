@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  mysql:
+    build: ./docker-conf/mysql
+    container_name: "spring-boot-kotlin-mysql"
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./docker-conf/mysql/db-data:/var/lib/mysql/
+    restart: always
+    privileged: true
+    env_file:
+      - ./docker-conf/mysql/.env
+volumes:
+    data:
